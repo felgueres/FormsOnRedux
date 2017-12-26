@@ -9,6 +9,9 @@ export default function(state = {}, action){
   case FETCH_POSTS:
     return _.mapKeys(action.payload.data, 'id');
     //  { post_id: post} <- format, use lodash
+
+  case DELETE_POST:
+    return _.omit(state, action.payload)
   default:
     return state
   }
